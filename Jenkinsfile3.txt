@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {
-      PROJECT_NAME = "Neptun"
-      OWNER_NAME   = "Denis Astahov"
+      PROJECT_NAME = "Tests"
+      OWNER_NAME   = "Pavel"
     }
 
     stages {
@@ -10,6 +10,7 @@ pipeline {
             steps {
                 echo "Start of Stage Build..."
                 echo "Building......."
+                sh "ls -la"
                 echo "End of Stage Build..."
             }
         }
@@ -17,7 +18,7 @@ pipeline {
             steps {
                 echo "Start of Stage Test..."
                 echo "Testing......."
-                echo "Privet ${PROJECT_NAME}"
+                echo "Hey ${PROJECT_NAME}"
                 echo "Owner is ${OWNER_NAME}"
                 echo "End of Stage Build..."
             }
@@ -26,7 +27,6 @@ pipeline {
             steps {
                 echo "Start of Stage Deploy..."
                 echo "Deploying......."
-                sh "ls -la"
                 sh '''
                    echo "Line1"
                    echo "Line2"
@@ -36,7 +36,7 @@ pipeline {
         }
         stage('4-Celebrate') {
             steps {
-                echo "CONGRATULYACIYA!"
+                echo "Congrats!"
             }
         }	
     }
